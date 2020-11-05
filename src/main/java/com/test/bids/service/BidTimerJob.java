@@ -1,32 +1,25 @@
 package com.test.bids.service;
 
 import com.test.bids.domain.Bid;
+import com.test.bids.notification.BidProcessingObservable;
+import com.test.bids.notification.ProcessType;
 
 import java.util.List;
 import java.util.TimerTask;
-import java.util.stream.Collectors;
 
 public class BidTimerJob extends TimerTask {
 
-	public BidTimerJob() {
+    private final BidProcessingObservable bidProcessingObservable;
 
-		init();
-	}
+    public BidTimerJob(BidProcessingObservable bidProcessingObservable) {
+        this.bidProcessingObservable = bidProcessingObservable;
+    }
 
-	@Override
-	public void run() {
-
-		System.out.println(1);
-	}
-
-	public void init() {
-
-		BidFileReader bidFileReader = new BidFileReader();
-		List<Bid> bids = bidFileReader.read();
-		List<String> availableBidTypes = bids.stream().map(Bid::getName).collect(Collectors.toList());
-		availableBidTypes.forEach(bidType -> {
-
-		});
-	}
-
+    @Override
+    public void run() {
+        FileReader fileReader = new FileReader();
+        List<Bid> bids = fileReader.read();
+        bids.forEach(bidProcessingObservable::addBid);
+        bidProcessingObservable.process(ProcessType.READ);
+    }
 }

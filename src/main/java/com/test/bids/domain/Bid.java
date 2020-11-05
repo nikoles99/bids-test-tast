@@ -4,66 +4,64 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Bid {
 
-	private String id;
+    private String id;
 
-	@JsonProperty("ts")
-	private String timestamp;
+    @JsonProperty("ts")
+    private String timestamp;
 
-	@JsonProperty("ty")
-	private String name;
+    @JsonProperty("ty")
+    private String name;
 
-	@JsonProperty("pl")
-	private String payload;
+    @JsonProperty("pl")
+    private String payload;
 
-	public Bid() {
+    public Bid() {
 
-	}
+    }
 
-	public Bid(String id, String timestamp, String name, String payload) {
+    public String getId() {
 
-		this.id = id;
-		this.timestamp = timestamp;
-		this.name = name;
-		this.payload = payload;
-	}
+        return id;
+    }
 
-	public String getId() {
+    public void setId(String id) {
 
-		return id;
-	}
+        this.id = id;
+    }
 
-	public void setId(String id) {
+    public String getTimestamp() {
 
-		this.id = id;
-	}
+        return timestamp;
+    }
 
-	public String getTimestamp() {
+    public void setTimestamp(String timestamp) {
 
-		return timestamp;
-	}
+        this.timestamp = timestamp;
+    }
 
-	public void setTimestamp(String timestamp) {
+    public String getName() {
 
-		this.timestamp = timestamp;
-	}
+        return name;
+    }
 
-	public String getName() {
+    public void setName(String name) {
 
-		return name;
-	}
+        this.name = name;
+    }
 
-	public void setName(String name) {
+    public String getPayload() {
 
-		this.name = name;
-	}
+        return payload;
+    }
 
-	public String getPayload() {
+    public void setPayload(String payload) {
 
-		return payload;
-	}
+        this.payload = payload;
+    }
 
-	public void setPayload(String payload) {
+    @Override
+    public String toString() {
 
-		this.payload = payload;
-	}
+        return getClass().getName() + "@(" + this.getId() + ", " + this.getName() + ", " + this.getTimestamp() + ", " + this.getPayload() + ")";
+    }
 }
