@@ -1,10 +1,7 @@
 package com.test.bids.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class BidNode {
 
-	@JsonIgnoreProperties
 	private Bid bid;
 
 	public BidNode() {

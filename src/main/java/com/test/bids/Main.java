@@ -13,7 +13,7 @@ public class Main {
 
 	private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
-	private static final int PERIOD_MS = 10000;
+	private static final int PERIOD_MS = 60000;
 
 	public static void main(String[] args) {
 
